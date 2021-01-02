@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="PopularUI.Helpers.Themes.LightTheme">
+
+    <Color x:Key="PageBackgroundColor">White</Color>
+    <Color x:Key="PrimaryColor">WhiteSmoke</Color>
+    <Color x:Key="SecondaryColor">Black</Color>
+    <Color x:Key="PrimaryTextColor">Black</Color>
+    <Color x:Key="SecondaryTextColor">White</Color>
+    <Color x:Key="TransparentColor">Transparent</Color>
+    <Color x:Key="PulseColor">#0799FF</Color>
+
+    <Style x:Key="Logo" TargetType="Image">
+        <Setter Property="Source" Value="shazam_logo_light" />
+    </Style>
+
+    <Style x:Key="Library" TargetType="Image">
+        <Setter Property="Source" Value="library_light" />
+    </Style>
+
+    <Style x:Key="Charts" TargetType="Image">
+        <Setter Property="Source" Value="charts_light" />
+    </Style>
+
+    <Style x:Key="Search" TargetType="Image">
+        <Setter Property="Source" Value="search_light" />
+        <Setter Property="BackgroundColor" Value="#fff" />
+    </Style>
+
+    <Style x:Key="Page" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="#0168FF" />
+    </Style>
+
+    <Style x:Key="ShazamStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#0168FF" />
+        <Setter Property="TextColor" Value="#fff" />
+    </Style>
+
+    <Style x:Key="NetflixStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#141414" />
+        <Setter Property="TextColor" Value="#E50914" />
+    </Style>
+</ResourceDictionary>

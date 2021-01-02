@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    x:Class="PopularUI.Helpers.Themes.DarkTheme">
+
+    <Color x:Key="PageBackgroundColor">Black</Color>
+    <Color x:Key="NavigationBarColor">Teal</Color>
+    <Color x:Key="PrimaryColor">Teal</Color>
+    <Color x:Key="SecondaryColor">White</Color>
+    <Color x:Key="PrimaryTextColor">White</Color>
+    <Color x:Key="SecondaryTextColor">White</Color>
+    <Color x:Key="TertiaryTextColor">WhiteSmoke</Color>
+    <Color x:Key="TransparentColor">Transparent</Color>
+    <Color x:Key="PulseColor">#4D545A</Color>
+
+    <Style x:Key="Logo" TargetType="Image">
+        <Setter Property="Source" Value="shazam_logo_dark" />
+    </Style>
+
+    <Style x:Key="Library" TargetType="Image">
+        <Setter Property="Source" Value="library_dark" />
+    </Style>
+
+    <Style x:Key="Charts" TargetType="Image">
+        <Setter Property="Source" Value="charts_dark" />
+    </Style>
+
+
+    <Style x:Key="Search" TargetType="Image">
+        <Setter Property="Source" Value="search_dark" />
+        <Setter Property="BackgroundColor" Value="#4D545A" />
+    </Style>
+
+    <Style x:Key="Page" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="#000000" />
+    </Style>
+    
+    <Style x:Key="ShazamStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#4D545A" />
+        <Setter Property="TextColor" Value="#fff" />
+    </Style>
+
+    <Style x:Key="NetflixStyle" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#E50914" />
+        <Setter Property="TextColor" Value="#fff" />
+    </Style>
+        
+</ResourceDictionary>

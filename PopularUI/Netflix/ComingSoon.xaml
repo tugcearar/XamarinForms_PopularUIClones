@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:PopularUI.Netflix"
+             mc:Ignorable="d"
+             BackgroundColor="#141414"
+             x:Class="PopularUI.Netflix.ComingSoon">
+    <ContentPage.BindingContext>
+        <vm:NetflixViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10,10,10,0">
+                    <Image Source="notf_top" />
+                    <Label Text="Notifications"
+                           TextColor="White"
+                           VerticalOptions="Center"
+                           FontSize="Small"
+                           FontAttributes="Bold"
+                           HorizontalOptions="StartAndExpand" />
+                    <ImageButton Source="right_arrow" HorizontalOptions="End" />
+                </StackLayout>
+                <ListView ItemsSource="{Binding SoonMovies}"
+                          ItemAppearing="ListView_ItemAppearing"
+                          BackgroundColor="#141414"
+                          SeparatorVisibility="None"
+                          HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="0,20,0,0">
+                                    <Image Source="{Binding Poster}"
+                                           VerticalOptions="StartAndExpand"
+                                           HorizontalOptions="FillAndExpand" />
+                                    <StackLayout Orientation="Horizontal" Margin="15" Spacing="20">
+                                        <Image Source="{Binding Logo}" VerticalOptions="Center" HorizontalOptions="StartAndExpand" />
+                                        <StackLayout HorizontalOptions="End">
+                                            <Image Source="notf_solid" VerticalOptions="Center" />
+                                            <Label Text="Remind Me" FontSize="Micro" TextColor="#C5C5C5" />
+                                        </StackLayout>
+                                        <StackLayout HorizontalOptions="End">
+                                            <Image Source="share" VerticalOptions="Center" />
+                                            <Label Text="Share" FontSize="Micro" TextColor="#C5C5C5" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Label Text="{Binding DateText}"
+                                                   TextColor="#C5C5C5"
+                                           FontSize="Small"
+                                                   VerticalOptions="End"
+                                           Margin="15,0" />
+                                    <Label Text="{Binding Name}"
+                                           TextColor="White"
+                                           FontAttributes="Bold"
+                                           FontSize="Medium"
+                                           Margin="15,0" />
+                                    <Label Text="{Binding Description}"
+                                           FontSize="Small"
+                                           TextColor="#C5C5C5"
+                                           Margin="15,0" />
+                                    <StackLayout BindableLayout.ItemsSource="{Binding Genres}"
+                                                 Margin="15,0"
+                                                 Orientation="Horizontal">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackLayout Orientation="Horizontal">
+                                                    <Label Text="."
+                                                           VerticalOptions="Start"
+                                                           FontSize="Large"
+                                                           TextColor="#E50914" />
+                                                    <Label Text="{Binding .}"
+                                                           LineBreakMode="NoWrap"
+                                                           VerticalOptions="End"
+                                                           TextColor="White"
+                                                           FontSize="Micro" />
+                                                </StackLayout>
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             BackgroundColor="{DynamicResource PageBackgroundColor}"
+             x:Class="PopularUI.MainPage">
+    <StackLayout Margin="50,70,50,50">
+        <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+            <Label Text="Dark Theme: " TextColor="LightGray" FontSize="Large" VerticalOptions="Center" HorizontalOptions="StartAndExpand"></Label>
+            <Switch VerticalOptions="Center" HorizontalOptions="End" Toggled="Switch_Toggled"></Switch>
+        </StackLayout>
+        <Button Text="Netflix" Style="{DynamicResource NetflixStyle}" Clicked="Netflix_Clicked"></Button>
+        <Button Text="Shazam" Style="{DynamicResource ShazamStyle}" Clicked="Shazam_Clicked"></Button>
+    </StackLayout>
+</ContentPage>
