@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:image="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin" xmlns:vm="clr-namespace:PopularUI.Netflix"
+             mc:Ignorable="d"
+             BackgroundColor="#141414"
+             x:Class="PopularUI.Netflix.Home">
+    <ContentPage.BindingContext>
+        <vm:NetflixViewModel></vm:NetflixViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
+                    <Image Source="spirited_away"
+                       VerticalOptions="FillAndExpand" 
+                       HorizontalOptions="FillAndExpand"/>
+                    <BoxView BackgroundColor="Black" VerticalOptions="FillAndExpand" Opacity="0.5"/>
+                    <Grid VerticalOptions="End"
+                      RowSpacing="15"
+                      ColumnSpacing="20"
+                      Margin="0,0,0,50"
+                             HorizontalOptions="CenterAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Column="1"
+                           Grid.Row="0"
+                           Text="Spirited Away" 
+                           TextColor="White" 
+                           VerticalOptions="EndAndExpand"
+                           FontSize="35"
+                           LineBreakMode="WordWrap"
+                           FontAttributes="Bold"
+                           HorizontalOptions="CenterAndExpand">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Spirited"></Span>
+                                    <Span Text="&#10;"></Span>
+                                    <Span Text="Away"></Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+
+                        <StackLayout VerticalOptions="EndAndExpand"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Grid.Column="0"
+                                   Grid.Row="1">
+                            <Image Source="plus"/>
+                            <Label Text="Listem" TextColor="White" 
+                               VerticalOptions="CenterAndExpand"/>
+                        </StackLayout>
+                        <Frame BackgroundColor="White"
+                           Padding="5"
+                           Grid.Column="1" 
+                           Grid.Row="1">
+                            <StackLayout Orientation="Horizontal"
+                                     VerticalOptions="Center" 
+                                     HorizontalOptions="Center">
+                                <Image Source="play_dark"/>
+                                <Label Text="Oynat" TextColor="Black"/>
+                            </StackLayout>
+                        </Frame>
+                        <StackLayout VerticalOptions="EndAndExpand"
+                                 HorizontalOptions="CenterAndExpand"
+                                 Grid.Row="1"
+                                 Grid.Column="2">
+                            <Image Source="info_big"
+                                         VerticalOptions="Center" 
+                                         HorizontalOptions="Center"/>
+                            <Label Text="Bilgi" TextColor="White"/>
+                        </StackLayout>
+                    </Grid>
+                    <Image Source="netflix" Margin="20,20,0,0" VerticalOptions="Start" HorizontalOptions="Start"/>
+                    <StackLayout Margin="0,20,0,0" VerticalOptions="Start" HorizontalOptions="Center" Orientation="Horizontal">
+                        <Button Text="Diziler" BackgroundColor="Transparent" TextColor="White"/>
+                        <Button Text="Filmler" BackgroundColor="Transparent" TextColor="White"/>
+                        <Button Text="Listem" BackgroundColor="Transparent" TextColor="White"/>
+                    </StackLayout>
+                </Grid>
+
+
+                <StackLayout Margin="10,10" Spacing="20">
+                    <Label Text="Özel Videolar" 
+                           TextColor="White" 
+                           FontSize="Subtitle"
+                           VerticalOptions="Start" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Start"/>
+                    <CollectionView ItemsSource="{Binding Movies}" HeightRequest="150">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                           ItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <image:CircleImage VerticalOptions="Center"
+                                                       HorizontalOptions="Center"
+                                                       Aspect="AspectFill"
+                                                       WidthRequest="100"
+                                                       HeightRequest="100"
+                                                       Source="{Binding Poster}"></image:CircleImage>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Label Text="Listem" 
+                           TextColor="White" 
+                           FontSize="Subtitle"
+                           VerticalOptions="Start" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Start"/>
+                    <CollectionView ItemsSource="{Binding MyList}"
+                                    HeightRequest="150"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="StartAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                           ItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Grid>
+                                        <Image VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="FillAndExpand"
+                                           Source="{Binding Poster}"
+                                           Aspect="AspectFit" />
+                                        <Frame BackgroundColor="#970910" 
+                                               IsVisible="{Binding NewEpisodes}"
+                                               VerticalOptions="End" 
+                                               HorizontalOptions="Center"
+                                               Margin="0,0,0,5"
+                                               Padding="3,2">
+                                            <Label Text="YENİ BÖLÜMLER" TextColor="White" FontAttributes="Bold" FontSize="8"/>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Label Text="Gündemdekiler" 
+                           TextColor="White" 
+                           FontSize="Subtitle"
+                           VerticalOptions="Start" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Start"/>
+                    <CollectionView ItemsSource="{Binding Agenda}"
+                                    HeightRequest="150"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="StartAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                           ItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Grid>
+                                        <Image VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="FillAndExpand"
+                                           Source="{Binding Poster}"
+                                           Aspect="AspectFit" />
+                                        <Frame BackgroundColor="#970910" 
+                                               IsVisible="{Binding NewEpisodes}"
+                                               VerticalOptions="End" 
+                                               HorizontalOptions="Center"
+                                               Margin="0,0,0,5"
+                                               Padding="3,2">
+                                            <Label Text="YENİ BÖLÜMLER" TextColor="White" FontAttributes="Bold" FontSize="8"/>
+                                        </Frame>
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Netflix Orjinal İçerikleri" 
+                           TextColor="White" 
+                           FontSize="Subtitle"
+                           VerticalOptions="Start" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Start"/>
+                        <Image Source="right_arrow"/>
+                    </StackLayout>
+                    <CollectionView ItemsSource="{Binding NetflixOriginal}"
+                                    HeightRequest="300"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="StartAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                           ItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Grid>
+                                        <Image VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="FillAndExpand"
+                                           Source="{Binding Poster}"
+                                           Aspect="AspectFill" />
+                                    </Grid>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+
+                    <Label Text="İzlemeye Devam Et " 
+                           TextColor="White" 
+                           FontSize="Subtitle"
+                           VerticalOptions="Start" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Start"/>
+                    <CollectionView ItemsSource="{Binding ContinueToWatch}"
+                                    HeightRequest="200"
+                                    HorizontalOptions="Center"
+                                    VerticalOptions="StartAndExpand">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Horizontal"
+                           ItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout Spacing="0">
+                                    <Grid>
+                                        <Image VerticalOptions="FillAndExpand"
+                                           HorizontalOptions="FillAndExpand"
+                                           Source="{Binding Poster}"
+                                           Aspect="AspectFit" />
+                                        <Image Source="play" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                    </Grid>
+                                    <BoxView HeightRequest="2"
+                                             WidthRequest="{Binding Progress}"
+                                             BackgroundColor="#E50914"
+                                             HorizontalOptions="StartAndExpand"/>
+
+                                    <Frame BackgroundColor="Black" Padding="5">
+                                        <StackLayout Orientation="Horizontal" 
+                                                 HorizontalOptions="Center"
+                                                     Spacing="30"
+                                                 VerticalOptions="Center">
+                                            <Label Text="{Binding CurrentEpisode}" TextColor="White"/>
+                                            <Image Source="info"/>
+                                        </StackLayout>
+                                    </Frame>
+                                       
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                </StackLayout>
+                
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

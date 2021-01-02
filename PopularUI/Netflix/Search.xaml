@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:PopularUI.Netflix"
+             mc:Ignorable="d"
+              BackgroundColor="#141414"
+            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             x:Class="PopularUI.Netflix.Search">
+    <ContentPage.BindingContext>
+        <vm:NetflixViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar VerticalOptions="Start"
+                       HorizontalOptions="FillAndExpand" 
+                       TextColor="White"
+                       PlaceholderColor="White"
+                       FontSize="Small"
+                       BackgroundColor="#141414"
+                       Placeholder="Search for a show, movie, genre, etc."/>
+            <ListView HasUnevenRows="True"
+                      BackgroundColor="#141414"
+                      SeparatorVisibility="None"
+                      ItemsSource="{Binding Movies}">
+                <ListView.Header>
+                    <Label Text="Popular Searches" TextColor="White" Margin="10,20,0,20" FontSize="Medium"/>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" 
+                                         Spacing="8"
+                                         Margin="0,10,0,0" 
+                                         BackgroundColor="#202020">
+                                <Image Source="{Binding Poster}" 
+                                       VerticalOptions="Center"
+                                       WidthRequest="120"
+                                       HeightRequest="80"
+                                       Aspect="AspectFill"/>
+                                <Label Text="{Binding Name}" TextColor="White"
+                                       VerticalOptions="Center" 
+                                       HorizontalOptions="StartAndExpand"
+                                       FontSize="Small"/>
+                                <Image Source="right_arrow" HorizontalOptions="End" Margin="5,0,20,0"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

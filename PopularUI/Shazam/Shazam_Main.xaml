@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:PopularUI.Helpers"
+             x:Class="PopularUI.Shazam.Shazam_Main"
+             
+             Style="{DynamicResource Page}">
+    <ContentPage.Content>
+        <Grid Padding="20">
+            <ImageButton Style="{DynamicResource Library}" BackgroundColor="Transparent" VerticalOptions="Start" HorizontalOptions="Start" WidthRequest="30"></ImageButton>
+            <ImageButton Style="{DynamicResource Charts}" BackgroundColor="Transparent" WidthRequest="30" VerticalOptions="Start" HorizontalOptions="End"></ImageButton>
+
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <control:PulseAnimation AutoStart="true" PulseColor="{DynamicResource PulseColor}" Margin="10" Speed="10" />
+                <Image  Style="{DynamicResource Logo}" VerticalOptions="Center" HorizontalOptions="Center" WidthRequest="100" HeightRequest="100"></Image>
+            </Grid>
+
+            <StackLayout Margin="0,250,0,0" Spacing="30" VerticalOptions="Center" HorizontalOptions="Center">
+                <Label Text="Tap to Shazam"
+                   TextColor="White"
+                       FontAttributes="Bold"
+                       FontSize="Medium"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" />
+
+                <ImageButton Style="{DynamicResource Search}"
+                         VerticalOptions="Center"
+                             WidthRequest="40"
+                             HeightRequest="40"
+                         Padding="8"
+                         CornerRadius="20"
+                         HorizontalOptions="Center" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:pages="clr-namespace:PopularUI.Netflix"
+            mc:Ignorable="d"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="Gray"
+            BarBackgroundColor="Black"
+            android:TabbedPage.BarSelectedItemColor="White"
+             x:Class="PopularUI.Netflix.MainTabbedPage">
+    <!--Pages can be added as references or inline-->
+    <pages:Home Title="Home" IconImageSource="home"/>
+    <pages:Search Title="Search" IconImageSource="search"/>
+    <pages:ComingSoon Title="Coming Soon" IconImageSource="media"/>
+    <ContentPage Title="Downloads" IconImageSource="download"/>
+    <ContentPage Title="More" IconImageSource="more"/>
+</TabbedPage>
